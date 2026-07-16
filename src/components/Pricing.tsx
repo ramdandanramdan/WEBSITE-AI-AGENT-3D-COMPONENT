@@ -51,12 +51,10 @@ export function Pricing() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {plans.map((p, i) => (
             <ScrollRevealCard key={i} delay={i * 0.1}>
-              <div
-              className="rounded-2xl p-8 relative transition-all duration-500"
+            <div
+              key={i}
+              className="card-glass rounded-2xl p-8 relative"
               style={{
-                background: "transparent",
-                backdropFilter: "blur(20px)",
-                border: p.highlighted ? "1px solid rgba(79,140,255,0.3)" : "1px solid rgba(255,255,255,0.08)",
                 boxShadow: p.highlighted ? "0 0 40px rgba(79,140,255,0.08)" : "none",
               }}
             >

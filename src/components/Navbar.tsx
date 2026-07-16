@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const NAV_ITEMS = [
   { label: "Kurikulum", href: "#features" },
@@ -13,6 +13,9 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [time, setTime] = useState("00:00:00");
+  const [glitchText, setGlitchText] = useState("");
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -20,92 +23,176 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Clock
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString("en-US", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+    };
+    tick();
+    intervalRef.current = setInterval(tick, 1000);
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, []);
+
+  // Random glitch text
+  useEffect(() => {
+    const words = ["SYS.OK", "AI.READY", "NET.SYNC", "BOT.ACTIVE", "CORE.RUN", "NODE.UP"];
+    let idx = 0;
+    const tick = () => {
+      setGlitchText(words[idx % words.length]);
+      idx++;
+    };
+    tick();
+    const id = setInterval(tick, 3000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pointer-events-auto"
       style={{
-        background: "transparent",
-        backdropFilter: scrolled ? "blur(40px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(40px)" : "none",
+        background: scrolled ? "rgba(5, 8, 22, 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(30px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(30px)" : "none",
         borderBottom: scrolled
-          ? "1px solid rgba(255,255,255,0.08)"
+          ? "1px solid rgba(79, 140, 255, 0.12)"
           : "1px solid transparent",
-        padding: scrolled ? "12px 0" : "20px 0",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5">
+      {/* Top scan line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background: scrolled
+            ? "linear-gradient(90deg, transparent, rgba(79,140,255,0.4), rgba(107,232,255,0.3), rgba(79,140,255,0.4), transparent)"
+            : "transparent",
+          transition: "background 0.5s",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-2.5 pointer-events-auto">
           <div className="relative w-8 h-8">
             <div className="absolute inset-0 border border-[#4F8CFF] rotate-45" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 bg-[#4F8CFF] rounded-full" style={{boxShadow:"0 0 10px rgba(79,140,255,0.8)"}} />
+              <div
+                className="w-1.5 h-1.5 bg-[#4F8CFF] rounded-full"
+                style={{ boxShadow: "0 0 8px rgba(79,140,255,0.8)" }}
+              />
             </div>
+            {/* Rotating ring */}
+            <div
+              className="absolute inset-[-3px] border border-dashed border-[rgba(79,140,255,0.2)] rotate-45 animate-spin-slow"
+              style={{ borderRadius: "50%" }}
+            />
           </div>
           <span className="text-lg font-bold tracking-tight">
-            <span className="text-white">RamadanClass</span>
-            <span className="text-[#4F8CFF]">.AI</span>
+            <span className="text-white">Ramadan</span>
+            <span className="text-[#4F8CFF]">Class</span>
+            <span className="text-[#6BE8FF]">.AI</span>
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          {NAV_ITEMS.map((item) => (
+        {/* Nav links - desktop */}
+        <div className="hidden md:flex items-center gap-1">
+          {NAV_ITEMS.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-[#BFC7D5] hover:text-white transition-colors duration-300"
+              className="relative px-4 py-2 text-sm text-[#BFC7D5] hover:text-white transition-colors duration-300 pointer-events-auto group"
             >
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
+              <span className="absolute bottom-1 left-4 right-4 h-px bg-[#4F8CFF] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </a>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <a href="#" className="px-5 py-2 text-sm text-[#BFC7D5] hover:text-white transition-colors">
-            Log In
-          </a>
+        {/* Status bar - desktop */}
+        <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-2 text-[10px] font-mono text-[rgba(79,140,255,0.5)] tracking-wider">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse" />
+            <span>{glitchText}</span>
+          </div>
+          <div className="text-[10px] font-mono text-[rgba(107,232,255,0.3)] tracking-wider">
+            {time}
+          </div>
           <a
             href="#"
-            className="px-5 py-2 text-sm font-medium text-white rounded-full transition-all duration-300"
-            style={{             background: "transparent" }}
+            className="px-5 py-2 text-sm font-medium text-white rounded-lg transition-all duration-300 pointer-events-auto"
+            style={{
+              background: "linear-gradient(135deg, rgba(79,140,255,0.2), rgba(107,232,255,0.1))",
+              border: "1px solid rgba(79,140,255,0.3)",
+              boxShadow: "0 0 15px rgba(79,140,255,0.1)",
+            }}
           >
             Get Started
           </a>
         </div>
 
+        {/* Mobile menu button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 pointer-events-auto"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {mobileOpen ? (
-              <path d="M18 6L6 18M6 6l12 12" />
-            ) : (
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            )}
-          </svg>
+          <div className="w-5 h-4 flex flex-col justify-between">
+            <span
+              className="w-full h-px bg-[#4F8CFF] block transition-all duration-300"
+              style={{
+                transform: mobileOpen ? "rotate(45deg) translate(2px, 2px)" : "none",
+              }}
+            />
+            <span
+              className="w-full h-px bg-[#4F8CFF] block transition-all duration-300"
+              style={{
+                opacity: mobileOpen ? 0 : 1,
+              }}
+            />
+            <span
+              className="w-full h-px bg-[#4F8CFF] block transition-all duration-300"
+              style={{
+                transform: mobileOpen ? "rotate(-45deg) translate(2px, -2px)" : "none",
+              }}
+            />
+          </div>
         </button>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
         <div
-          className="md:hidden mx-4 mt-2 rounded-2xl p-6"
+          className="md:hidden mx-4 mt-2 rounded-2xl p-6 pointer-events-auto"
           style={{
-            background: "transparent",
-            backdropFilter: "blur(40px)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            background: "rgba(5, 8, 22, 0.95)",
+            backdropFilter: "blur(30px)",
+            border: "1px solid rgba(79, 140, 255, 0.15)",
           }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-[#BFC7D5] hover:text-white py-2"
+                className="text-sm text-[#BFC7D5] hover:text-white hover:bg-[rgba(79,140,255,0.08)] py-3 px-4 rounded-lg transition-all duration-200"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
               </a>
             ))}
+          </div>
+          <div className="mt-4 pt-4 flex items-center justify-between" style={{ borderTop: "1px solid rgba(79,140,255,0.1)" }}>
+            <div className="flex items-center gap-2 text-[10px] font-mono text-[rgba(79,140,255,0.5)]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse" />
+              {glitchText}
+            </div>
+            <div className="text-[10px] font-mono text-[rgba(107,232,255,0.3)]">{time}</div>
           </div>
         </div>
       )}

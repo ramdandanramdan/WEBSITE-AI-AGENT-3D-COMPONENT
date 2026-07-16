@@ -76,14 +76,7 @@ const FEATURES = [
 
 function CardGlass({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div
-      className={`rounded-2xl p-6 transition-all duration-500 hover:shadow-[0_0_30px_rgba(79,140,255,0.08)] ${className}`}
-      style={{
-        background: "transparent",
-        backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255,255,255,0.08)",
-      }}
-    >
+    <div className={`card-glass rounded-2xl p-6 ${className}`}>
       {children}
     </div>
   );

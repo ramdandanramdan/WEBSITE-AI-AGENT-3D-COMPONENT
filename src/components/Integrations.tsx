@@ -36,12 +36,7 @@ export function Integrations() {
           {tools.map((int, i) => (
             <ScrollRevealCard key={i} delay={i * 0.06}>
               <div
-              className="rounded-2xl p-6 flex flex-col items-center gap-3 transition-all duration-500 cursor-pointer"
-              style={{
-                background: "transparent",
-                backdropFilter: "blur(20px)",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
+                className="card-glass rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer"
             >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "transparent" }}>
                 <div className="w-5 h-5 rounded bg-[#4F8CFF] opacity-60" />

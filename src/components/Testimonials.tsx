@@ -31,8 +31,7 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <ScrollRevealCard key={i} delay={i * 0.1}>
               <div
-              className="rounded-2xl p-8 transition-all duration-500 relative overflow-hidden"
-              style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
+                className="card-glass rounded-2xl p-8 relative overflow-hidden"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (

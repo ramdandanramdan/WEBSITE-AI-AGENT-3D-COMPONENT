@@ -3,16 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const cyberpunk = {
-  initial: { opacity: 0, y: 20, filter: "blur(4px)" },
-  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
-
-const slideUp = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-};
-
 export function ScrollReveal({
   children,
   delay = 0,
@@ -29,10 +19,13 @@ export function ScrollReveal({
     <motion.div
       ref={ref}
       className={className}
-      initial="initial"
-      animate={isInView ? "animate" : "initial"}
-      variants={cyberpunk}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, filter: "blur(0px)" }
+          : { opacity: 0, y: 40, filter: "blur(6px)" }
+      }
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -54,14 +47,18 @@ export function ScrollRevealCard({
   return (
     <motion.div
       ref={ref}
-      className={className}
-      initial="initial"
-      animate={isInView ? "animate" : "initial"}
-      variants={slideUp}
-      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={`group ${className}`}
+      initial={{ opacity: 0, y: 60, rotateX: 4, scale: 0.96 }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, rotateX: 0, scale: 1 }
+          : { opacity: 0, y: 60, rotateX: 4, scale: 0.96 }
+      }
+      transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{
-        y: -6,
-        transition: { duration: 0.2 },
+        y: -8,
+        scale: 1.02,
+        transition: { duration: 0.25 },
       }}
     >
       {children}
@@ -85,17 +82,13 @@ export function ScrollRevealRobot({
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      initial={{ opacity: 0, y: 50, scale: 0.95, filter: "blur(8px)" }}
       animate={
         isInView
-          ? { opacity: 1, y: 0, scale: 1 }
-          : { opacity: 0, y: 30, scale: 0.98 }
+          ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+          : { opacity: 0, y: 50, scale: 0.95, filter: "blur(8px)" }
       }
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
+      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

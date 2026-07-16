@@ -36,8 +36,7 @@ export function FAQ() {
           {faqs.map((f, i) => (
             <div
               key={i}
-              className="rounded-xl overflow-hidden"
-              style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
+              className="card-glass rounded-xl overflow-hidden"
             >
               <button
                 className="w-full flex items-center justify-between p-5 text-left cursor-pointer pointer-events-auto"
