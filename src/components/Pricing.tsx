@@ -1,5 +1,7 @@
 "use client";
 
+import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+
 const plans = [
   {
     name: "Starter",
@@ -31,23 +33,25 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
-            <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Paket Harga</span>
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
+              <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Paket Harga</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+              Investasi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Masa Depan</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
+              Mulai dari yang kecil, scale sesuai progress belajarmu.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-            Investasi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Masa Depan</span>
-          </h2>
-          <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
-            Mulai dari yang kecil, scale sesuai progress belajarmu.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {plans.map((p, i) => (
-            <div
-              key={i}
+            <ScrollRevealCard key={i} delay={i * 0.1}>
+              <div
               className="rounded-2xl p-8 relative transition-all duration-500"
               style={{
                 background: "transparent",
@@ -90,6 +94,7 @@ export function Pricing() {
                 {p.highlighted ? "Mulai Sekarang" : "Pilih Paket"}
               </a>
             </div>
+            </ScrollRevealCard>
           ))}
         </div>
       </div>

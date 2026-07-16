@@ -1,12 +1,14 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { ScrollRevealRobot } from "./ScrollReveal";
 
 export function CTA() {
   return (
     <section className="py-24 md:py-32 px-6 pointer-events-auto">
       <div className="max-w-4xl mx-auto text-center relative">
-        <div className="relative z-10">
+        <ScrollRevealRobot>
+          <div className="relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
             <span className="block text-white mb-3">Siap Memulai</span>
             <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Perjalanan AI-mu?</span>
@@ -23,7 +25,8 @@ export function CTA() {
             </a>
           </div>
           <p className="text-xs text-[#BFC7D5] mt-6 opacity-60">Garansi uang kembali 7 hari · Tanpa kartu kredit · Bisa cancel kapan saja</p>
-        </div>
+          </div>
+        </ScrollRevealRobot>
       </div>
     </section>
   );

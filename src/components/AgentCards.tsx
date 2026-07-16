@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
 
 const agents = [
   { name: "AI Reasoning Agent", role: "Logika & Keputusan", desc: "Bangun agent yang bisa menganalisis masalah, membuat rencana, dan mengambil keputusan secara otonom.", caps: ["Natural Language", "Goal Decomposition", "Problem Solving"], color: "#4F8CFF" },
@@ -30,25 +31,28 @@ export function AgentCards() {
   return (
     <section id="agents" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
-            style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
-            <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Modul Belajar</span>
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
+              style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
+              <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Modul Belajar</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+              Jenis <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">AI Agents</span> yang Dipelajari
+            </h2>
+            <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
+              Setiap modul dirancang untuk memberikan pemahaman mendalam tentang spesialisasi AI tertentu.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-            Jenis <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">AI Agents</span> yang Dipelajari
-          </h2>
-          <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
-            Setiap modul dirancang untuk memberikan pemahaman mendalam tentang spesialisasi AI tertentu.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {agents.map((a, i) => (
-            <CardGlass key={i}>
+            <ScrollRevealCard key={i} delay={i * 0.08}>
+              <CardGlass>
               <div className="flex items-start gap-4 mb-4">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
@@ -70,6 +74,7 @@ export function AgentCards() {
                 ))}
               </div>
             </CardGlass>
+            </ScrollRevealCard>
           ))}
         </div>
       </div>

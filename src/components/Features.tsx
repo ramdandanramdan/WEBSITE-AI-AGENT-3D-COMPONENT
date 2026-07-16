@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
 
 function SectionHeading({
   badge,
@@ -101,15 +102,18 @@ export function Features() {
   return (
     <section id="features" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading
-          badge="Kurikulum"
-          title={<>Materi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Hands-on</span> Terlengkap</>}
-          description="Semua yang kamu butuhkan untuk menguasai AI agents dan robotika otonom."
-        />
+        <ScrollReveal>
+          <SectionHeading
+            badge="Kurikulum"
+            title={<>Materi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Hands-on</span> Terlengkap</>}
+            description="Semua yang kamu butuhkan untuk menguasai AI agents dan robotika otonom."
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {FEATURES.map((f, i) => (
-            <CardGlass key={i}>
+            <ScrollRevealCard key={i} delay={i * 0.08}>
+              <CardGlass>
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                 style={{ background: "transparent", border: "1px solid rgba(79,140,255,0.2)" }}
@@ -121,6 +125,7 @@ export function Features() {
               <h3 className="text-lg font-semibold mb-3 text-white">{f.title}</h3>
               <p className="text-sm text-[#BFC7D5] leading-relaxed">{f.desc}</p>
             </CardGlass>
+            </ScrollRevealCard>
           ))}
         </div>
       </div>

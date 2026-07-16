@@ -1,5 +1,7 @@
 "use client";
 
+import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+
 const testimonials = [
   { name: "Ahmad Rizky", role: "Fresh Graduate", company: "Universitas Indonesia", content: "Dari zero knowledge sampai bisa bikin AI agent yang auto-respons customer. Portfolioku sekarang jadi senjata utama melamar kerja." },
   { name: "Siti Nurhaliza", role: "Career Switcher", company: "Ex-Marketing", content: "Awalnya takut pindah ke tech, tapi RamadanClass.AI bikin perjalanan belajar jadi menyenangkan. Sekarang jadi ML Engineer!" },
@@ -10,23 +12,25 @@ export function Testimonials() {
   return (
     <section className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
-            <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Testimoni</span>
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
+              <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Testimoni</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+              Dipercaya <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">500+ Siswa</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
+              Cerita nyata dari mereka yang sudah memulai perjalanan AI-nya bersama kami.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-            Dipercaya <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">500+ Siswa</span>
-          </h2>
-          <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
-            Cerita nyata dari mereka yang sudah memulai perjalanan AI-nya bersama kami.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
-            <div
-              key={i}
+            <ScrollRevealCard key={i} delay={i * 0.1}>
+              <div
               className="rounded-2xl p-8 transition-all duration-500 relative overflow-hidden"
               style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
             >
@@ -46,6 +50,7 @@ export function Testimonials() {
                 </div>
               </div>
             </div>
+            </ScrollRevealCard>
           ))}
         </div>
       </div>

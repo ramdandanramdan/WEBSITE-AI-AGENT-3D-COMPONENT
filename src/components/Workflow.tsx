@@ -1,5 +1,7 @@
 "use client";
 
+import { ScrollReveal } from "./ScrollReveal";
+
 const steps = [
   { step: "01", title: "Dasar AI & Python", desc: "Mulai dari fundamental - Python, linear algebra, probability, dan pengenalan machine learning." },
   { step: "02", title: "Bangun AI Agent Pertama", desc: "Pelajari arsitektur agent, reasoning loops, dan buat agent pertama yang bisa menjawab pertanyaan." },
@@ -11,18 +13,20 @@ export function Workflow() {
   return (
     <section id="workflow" className="py-24 md:py-32 px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
-            <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Jalur Belajar</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-            Dari <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Pemula</span> hingga Mahir
-          </h2>
-          <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
-            4 tahap terstruktur untuk menguasai AI agents dan robotika otonom.
-          </p>
-        </div>
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#4F8CFF] animate-pulse-glow" />
+                <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Jalur Belajar</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+                Dari <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Pemula</span> hingga Mahir
+              </h2>
+              <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
+                4 tahap terstruktur untuk menguasai AI agents dan robotika otonom.
+              </p>
+            </div>
+          </ScrollReveal>
 
         <div className="relative">
           <div className="absolute left-[27px] top-0 bottom-0 w-px hidden md:block" style={{ background: "linear-gradient(to bottom, #4F8CFF, #6BE8FF, transparent)" }} />

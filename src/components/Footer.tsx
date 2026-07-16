@@ -1,5 +1,7 @@
 "use client";
 
+import { ScrollReveal } from "./ScrollReveal";
+
 export function Footer() {
   const productLinks = ["Kurikulum", "Modul", "Harga", "Tech Stack", "Proyek"];
   const companyLinks = ["Tentang Kami", "Blog", "Karir", "Press", "Mitra"];
@@ -7,7 +9,8 @@ export function Footer() {
 
   return (
     <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} className="pointer-events-auto">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <ScrollReveal>
+        <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
           <div className="md:col-span-2">
             <a href="#" className="flex items-center gap-2.5 mb-4">
@@ -52,7 +55,8 @@ export function Footer() {
             <span className="text-xs text-[#BFC7D5]">Platform aktif</span>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </footer>
   );
 }
