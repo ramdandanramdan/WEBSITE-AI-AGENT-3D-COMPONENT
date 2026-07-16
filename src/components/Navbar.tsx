@@ -22,7 +22,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pointer-events-auto"
       style={{
         background: "transparent",
         backdropFilter: scrolled ? "blur(40px)" : "none",

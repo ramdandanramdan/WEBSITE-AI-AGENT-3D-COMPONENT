@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden pointer-events-auto">
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
           style={{

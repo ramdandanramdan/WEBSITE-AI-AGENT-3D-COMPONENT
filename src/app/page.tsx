@@ -33,8 +33,8 @@ export default function Home() {
       </div>
       <SplineBackground />
 
-      {/* Content on top */}
-      <div className="relative z-20">
+      {/* Content on top - pointer-events-none so Spline receives cursor across whole page */}
+      <div className="relative z-20 pointer-events-none">
         <Navbar />
         <Hero />
         <Features />

@@ -28,7 +28,7 @@ function CardGlass({ children, className = "" }: { children: ReactNode; classNam
 
 export function AgentCards() {
   return (
-    <section id="agents" className="py-24 md:py-32 px-6">
+    <section id="agents" className="py-24 md:py-32 px-6 pointer-events-auto">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div
