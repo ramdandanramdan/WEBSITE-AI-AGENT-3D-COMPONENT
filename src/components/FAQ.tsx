@@ -7,7 +7,7 @@ import { GlitchText } from "./ScrollReveal";
 const faqs = [
   { q: "Apakah perlu basic coding sebelum ikut?", a: "Tidak perlu! Kami mulai dari nol. Modul pertama membahas dasar Python dan konsep programming yang dibutuhkan untuk AI." },
   { q: "Berapa lama satu sesi kelas?", a: "Setiap sesi berlangsung 2-3 jam, termasuk teori singkat (30 menit) dan praktik hands-on (1.5-2 jam)." },
-  { q: "Apakah dapat sertifikat?", a: "Ya! Setelah menyelesaikan semua modul dan proyek akhir, kamu akan mendapatkan sertifikat RamadanClass.AI yang diakui industri." },
+  { q: "Apakah dapat sertifikat?", a: "Ya! Setelah menyelesaikan semua modul dan proyek akhir, kamu akan mendapatkan sertifikat RamdanClss.AI yang diakui industri." },
   { q: "Bagaimana jika tertinggal kelas?", a: "Semua sesi direkam dan bisa diakses kapan saja. Plus, ada session review mingguan untuk mengejar materi yang tertinggal." },
   { q: "Apakah ada jaminan kerja?", a: "Untuk paket Enterprise, kami menyediakan job guarantee dengan partner perusahaan tech terkemuka di Indonesia." },
 ];
@@ -94,7 +94,7 @@ export function FAQ() {
             </span>
           </h2>
           <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
-            Semua yang perlu kamu tahu tentang RamadanClass.AI.
+            Semua yang perlu kamu tahu tentang RamdanClss.AI.
           </p>
         </div>
 

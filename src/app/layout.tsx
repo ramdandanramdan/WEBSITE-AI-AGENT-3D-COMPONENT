@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RamadanClass.AI — Platform Pelatihan AI Agent & Robotika",
+  title: "RamdanClss.AI — Platform Pelatihan AI Agent & Robotika",
   description:
     "Belajar membuat robot otonom, AI agents, dan sistem cerdas dari nol. Kelas hands-on dengan mentor berpengalaman dan proyek nyata.",
   keywords: [
@@ -25,19 +25,19 @@ export const metadata: Metadata = {
     "kursus robot",
     "artificial intelligence",
   ],
-  authors: [{ name: "RamadanClass.AI" }],
+  authors: [{ name: "RamdanClss.AI" }],
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://ramadanclass.ai",
-    title: "RamadanClass.AI — Platform Pelatihan AI Agent & Robotika",
+    url: "https://ramdanclss.ai",
+    title: "RamdanClss.AI — Platform Pelatihan AI Agent & Robotika",
     description:
       "Belajar membuat robot otonom, AI agents, dan sistem cerdas dari nol.",
-    siteName: "RamadanClass.AI",
+    siteName: "RamdanClss.AI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RamadanClass.AI — Platform Pelatihan AI Agent & Robotika",
+    title: "RamdanClss.AI — Platform Pelatihan AI Agent & Robotika",
     description:
       "Belajar membuat robot otonom, AI agents, dan sistem cerdas dari nol.",
   },

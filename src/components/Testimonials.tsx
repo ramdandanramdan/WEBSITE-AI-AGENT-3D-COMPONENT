@@ -4,7 +4,7 @@ import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 const testimonials = [
   { name: "Ahmad Rizky", role: "Fresh Graduate", company: "Universitas Indonesia", content: "Dari zero knowledge sampai bisa bikin AI agent yang auto-respons customer. Portfolioku sekarang jadi senjata utama melamar kerja." },
-  { name: "Siti Nurhaliza", role: "Career Switcher", company: "Ex-Marketing", content: "Awalnya takut pindah ke tech, tapi RamadanClass.AI bikin perjalanan belajar jadi menyenangkan. Sekarang jadi ML Engineer!" },
+  { name: "Siti Nurhaliza", role: "Career Switcher", company: "Ex-Marketing", content: "Awalnya takut pindah ke tech, tapi RamdanClss.AI bikin perjalanan belajar jadi menyenangkan. Sekarang jadi ML Engineer!" },
   { name: "Budi Santoso", role: "Mahasiswa TI", company: "ITB", content: "Proyek robot otonom yang dibuat di kelas ini langsung dipresentasikan di konferensi nasional. Materinya out of the box banget." },
 ];
 

@@ -80,23 +80,41 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 pointer-events-auto">
-          <div className="relative w-8 h-8">
-            <div className="absolute inset-0 border border-[#4F8CFF] rotate-45" />
+          <div className="relative w-9 h-9">
+            {/* Outer hexagon */}
+            <svg viewBox="0 0 36 36" className="absolute inset-0 w-full h-full">
+              <polygon
+                points="18,1 33,9.5 33,26.5 18,35 3,26.5 3,9.5"
+                fill="none"
+                stroke="rgba(79,140,255,0.5)"
+                strokeWidth="1.2"
+              />
+              <polygon
+                points="18,5 29,11 29,25 18,31 7,25 7,11"
+                fill="none"
+                stroke="rgba(107,232,255,0.25)"
+                strokeWidth="0.8"
+                strokeDasharray="3 2"
+              />
+            </svg>
+            {/* Center glow node */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div
-                className="w-1.5 h-1.5 bg-[#4F8CFF] rounded-full"
-                style={{ boxShadow: "0 0 8px rgba(79,140,255,0.8)" }}
+                className="w-2 h-2 rounded-full bg-[#4F8CFF]"
+                style={{ boxShadow: "0 0 10px rgba(79,140,255,0.9), 0 0 20px rgba(79,140,255,0.4)" }}
               />
             </div>
-            {/* Rotating ring */}
-            <div
-              className="absolute inset-[-3px] border border-dashed border-[rgba(79,140,255,0.2)] rotate-45 animate-spin-slow"
-              style={{ borderRadius: "50%" }}
-            />
+            {/* Orbiting dot */}
+            <div className="absolute inset-[-4px] animate-spin-slow" style={{ borderRadius: "50%" }}>
+              <div
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#6BE8FF]"
+                style={{ boxShadow: "0 0 6px rgba(107,232,255,0.8)" }}
+              />
+            </div>
           </div>
           <span className="text-lg font-bold tracking-tight">
-            <span className="text-white">Ramadan</span>
-            <span className="text-[#4F8CFF]">Class</span>
+            <span className="text-white">Ramdan</span>
+            <span className="text-[#4F8CFF]">Clss</span>
             <span className="text-[#6BE8FF]">.AI</span>
           </span>
         </a>
