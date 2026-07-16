@@ -3,53 +3,17 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-interface ScrollRevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  direction?: "up" | "down" | "left" | "right";
-  className?: string;
-}
+const cyberpunk = {
+  initial: { opacity: 0, y: 20, filter: "blur(4px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
+const slideUp = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export function ScrollReveal({
-  children,
-  delay = 0,
-  direction = "up",
-  className = "",
-}: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  const dirMap = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
-  };
-
-  const d = dirMap[direction];
-
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0, y: d.y, x: d.x, filter: "blur(8px)" }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, x: 0, filter: "blur(0px)" }
-          : { opacity: 0, y: d.y, x: d.x, filter: "blur(8px)" }
-      }
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function ScrollRevealRobot({
   children,
   delay = 0,
   className = "",
@@ -65,17 +29,10 @@ export function ScrollRevealRobot({
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 30, rotateX: 8, scale: 0.97 }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, rotateX: 0, scale: 1 }
-          : { opacity: 0, y: 30, rotateX: 8, scale: 0.97 }
-      }
-      transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      variants={cyberpunk}
+      transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
@@ -98,18 +55,47 @@ export function ScrollRevealCard({
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 24, scale: 0.95 }}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      variants={slideUp}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileHover={{
+        y: -6,
+        transition: { duration: 0.2 },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function ScrollRevealRobot({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
       animate={
         isInView
           ? { opacity: 1, y: 0, scale: 1 }
-          : { opacity: 0, y: 24, scale: 0.95 }
+          : { opacity: 0, y: 30, scale: 0.98 }
       }
       transition={{
-        duration: 0.6,
+        duration: 0.7,
         delay,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
       {children}
     </motion.div>
