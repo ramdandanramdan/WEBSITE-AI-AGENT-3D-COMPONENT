@@ -1,7 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
-import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard } from "./ScrollReveal";
 
 const agents = [
   { name: "AI Reasoning Agent", role: "Logika & Keputusan", desc: "Bangun agent yang bisa menganalisis masalah, membuat rencana, dan mengambil keputusan secara otonom.", caps: ["Natural Language", "Goal Decomposition", "Problem Solving"], color: "#4F8CFF" },
@@ -11,14 +10,6 @@ const agents = [
   { name: "Interface Agent", role: "Integrasi", desc: "Bangun agent yang berinteraksi dengan API, database, dan service eksternal secara context-aware.", caps: ["API Integration", "Form Filling", "Web Scraping"], color: "#6BE8FF" },
   { name: "Robot Agent", role: "Fisik & Otonom", desc: "Integrasikan AI ke robot fisik - navigasi, manipulasi objek, dan pengambilan keputusan real-time.", caps: ["Sensor Fusion", "Path Planning", "Object Manipulation"], color: "#7DD3FC" },
 ];
-
-function CardGlass({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`card-glass rounded-2xl p-6 ${className}`}>
-      {children}
-    </div>
-  );
-}
 
 export function AgentCards() {
   return (
@@ -44,8 +35,7 @@ export function AgentCards() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {agents.map((a, i) => (
-            <ScrollRevealCard key={i} delay={i * 0.08}>
-              <CardGlass>
+            <CyberCard key={i} delay={i * 0.08}>
               <div className="flex items-start gap-4 mb-4">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
@@ -66,8 +56,7 @@ export function AgentCards() {
                   </span>
                 ))}
               </div>
-            </CardGlass>
-            </ScrollRevealCard>
+            </CyberCard>
           ))}
         </div>
       </div>

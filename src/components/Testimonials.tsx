@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard } from "./ScrollReveal";
 
 const testimonials = [
   { name: "Ahmad Rizky", role: "Fresh Graduate", company: "Universitas Indonesia", content: "Dari zero knowledge sampai bisa bikin AI agent yang auto-respons customer. Portfolioku sekarang jadi senjata utama melamar kerja." },
@@ -29,10 +29,7 @@ export function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
-            <ScrollRevealCard key={i} delay={i * 0.1}>
-              <div
-                className="card-glass rounded-2xl p-8 relative overflow-hidden"
-            >
+            <CyberCard key={i} delay={i * 0.1}>
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <svg key={j} className="w-4 h-4 text-[#4F8CFF]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
@@ -48,8 +45,7 @@ export function Testimonials() {
                   <div className="text-xs text-[#BFC7D5]">{t.role}, {t.company}</div>
                 </div>
               </div>
-            </div>
-            </ScrollRevealCard>
+            </CyberCard>
           ))}
         </div>
       </div>

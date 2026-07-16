@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard } from "./ScrollReveal";
 
 const plans = [
   {
@@ -50,18 +50,11 @@ export function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {plans.map((p, i) => (
-            <ScrollRevealCard key={i} delay={i * 0.1}>
-            <div
-              key={i}
-              className="card-glass rounded-2xl p-8 relative"
-              style={{
-                boxShadow: p.highlighted ? "0 0 40px rgba(79,140,255,0.08)" : "none",
-              }}
-            >
+            <CyberCard key={i} delay={i * 0.1}>
               {p.highlighted && (
                 <div
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold text-white"
-                  style={{ background: "transparent", border: "1px solid rgba(79,140,255,0.3)" }}
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold text-white z-10"
+                  style={{ background: "linear-gradient(135deg, #4F8CFF, #6BE8FF)", border: "1px solid rgba(79,140,255,0.3)" }}
                 >
                   Paling Populer
                 </div>
@@ -91,8 +84,7 @@ export function Pricing() {
               >
                 {p.highlighted ? "Mulai Sekarang" : "Pilih Paket"}
               </a>
-            </div>
-            </ScrollRevealCard>
+            </CyberCard>
           ))}
         </div>
       </div>

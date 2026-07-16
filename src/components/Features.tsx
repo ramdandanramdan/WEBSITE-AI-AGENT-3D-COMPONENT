@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard } from "./ScrollReveal";
 
 function SectionHeading({
   badge,
@@ -74,14 +74,6 @@ const FEATURES = [
   },
 ];
 
-function CardGlass({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`card-glass rounded-2xl p-6 ${className}`}>
-      {children}
-    </div>
-  );
-}
-
 const ICONS: Record<string, string> = {
   brain: "M12 2a7 7 0 0 0-7 7c0 3 2 5.5 4 7.5L12 20l3-3.5c2-2 4-4.5 4-7.5a7 7 0 0 0-7-7z",
   workflow: "M4 6h4v4H4zM14 6h4v4h-4zM9 14h4v4H9zM14 14h4v4h-4z",
@@ -105,8 +97,7 @@ export function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {FEATURES.map((f, i) => (
-            <ScrollRevealCard key={i} delay={i * 0.08}>
-              <CardGlass>
+            <CyberCard key={i} delay={i * 0.08}>
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                 style={{ background: "transparent", border: "1px solid rgba(79,140,255,0.2)" }}
@@ -117,8 +108,7 @@ export function Features() {
               </div>
               <h3 className="text-lg font-semibold mb-3 text-white">{f.title}</h3>
               <p className="text-sm text-[#BFC7D5] leading-relaxed">{f.desc}</p>
-            </CardGlass>
-            </ScrollRevealCard>
+            </CyberCard>
           ))}
         </div>
       </div>

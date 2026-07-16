@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, ScrollRevealCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard } from "./ScrollReveal";
 
 const tools = [
   { name: "Python", category: "Bahasa Program" },
@@ -34,17 +34,13 @@ export function Integrations() {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {tools.map((int, i) => (
-            <ScrollRevealCard key={i} delay={i * 0.06}>
-              <div
-                className="card-glass rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer"
-            >
+            <CyberCard key={i} delay={i * 0.06} className="flex flex-col items-center gap-3 text-center">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "transparent" }}>
                 <div className="w-5 h-5 rounded bg-[#4F8CFF] opacity-60" />
               </div>
               <span className="text-sm font-medium text-white">{int.name}</span>
               <span className="text-[11px] text-[#BFC7D5]">{int.category}</span>
-              </div>
-            </ScrollRevealCard>
+            </CyberCard>
           ))}
         </div>
       </div>
