@@ -99,7 +99,7 @@ const ICONS: Record<string, string> = {
 
 export function Features() {
   return (
-    <section id="features" className="py-24 md:py-32 px-6 pointer-events-auto">
+    <section id="features" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           badge="Kurikulum"

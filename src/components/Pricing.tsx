@@ -29,7 +29,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 md:py-32 px-6 pointer-events-auto">
+    <section id="pricing" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
@@ -80,7 +80,7 @@ export function Pricing() {
               </ul>
               <a
                 href="#"
-                className="block w-full text-center px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300"
+                className="block w-full text-center px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 pointer-events-auto"
                 style={
                   p.highlighted
                     ? { background: "linear-gradient(135deg, #4F8CFF, #6BE8FF)", boxShadow: "0 0 30px rgba(79,140,255,0.3)" }

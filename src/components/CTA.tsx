@@ -15,10 +15,10 @@ export function CTA() {
             Bergabung dengan 500+ siswa yang sudah memulai karir AI-nya. Daftar sekarang dan dapatkan akses ke materi eksklusif.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#pricing" className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 hover:scale-105" style={{ background: "linear-gradient(135deg, #4F8CFF, #6BE8FF)", boxShadow: "0 0 30px rgba(79,140,255,0.3)" }}>
+            <a href="#pricing" className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 hover:scale-105 pointer-events-auto" style={{ background: "linear-gradient(135deg, #4F8CFF, #6BE8FF)", boxShadow: "0 0 30px rgba(79,140,255,0.3)" }}>
               Daftar Sekarang <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#" className="inline-flex items-center px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 hover:scale-105" style={{ border: "1px solid rgba(255,255,255,0.15)" }}>
+            <a href="#" className="inline-flex items-center px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 hover:scale-105 pointer-events-auto" style={{ border: "1px solid rgba(255,255,255,0.15)" }}>
               Konsultasi Gratis
             </a>
           </div>

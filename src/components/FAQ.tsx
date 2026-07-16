@@ -37,7 +37,7 @@ export function FAQ() {
               style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}
             >
               <button
-                className="w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                className="w-full flex items-center justify-between p-5 text-left cursor-pointer pointer-events-auto"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
                 <span className="text-sm font-medium text-white pr-4">{f.q}</span>
