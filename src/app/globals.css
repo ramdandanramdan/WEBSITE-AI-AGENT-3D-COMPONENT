@@ -10,6 +10,11 @@ body {
   font-family: var(--font-geist-sans), "Space Grotesk", sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
 }
 
 ::selection {

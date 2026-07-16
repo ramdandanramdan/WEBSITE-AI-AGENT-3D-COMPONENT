@@ -24,6 +24,11 @@ const BackgroundPaths = dynamic(
   { ssr: false }
 );
 
+const HackerCursor = dynamic(
+  () => import("@/components/HackerCursor").then((m) => m.HackerCursor),
+  { ssr: false }
+);
+
 export default function Home() {
   return (
     <>
@@ -47,6 +52,9 @@ export default function Home() {
         <CTA />
         <Footer />
       </div>
+
+      {/* Hacker cursor effect - top layer */}
+      <HackerCursor />
     </>
   );
 }
