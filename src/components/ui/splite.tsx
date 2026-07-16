@@ -16,30 +16,66 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     appRef.current = splineApp
     splineApp.setGlobalEvents(true)
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const canvas = splineApp.canvas
-      if (!canvas) return
-      const rect = canvas.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
+    const canvas = splineApp.canvas
+    if (!canvas) return
 
-      canvas.dispatchEvent(new PointerEvent('pointermove', {
+    const emit = (type: string, init: any) => {
+      try {
+        canvas.dispatchEvent(new (window as any)[type](type, init))
+      } catch {}
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      emit('PointerEvent', {
+        type: 'pointermove',
         clientX: e.clientX,
         clientY: e.clientY,
         bubbles: true,
         pointerId: 1,
         pointerType: 'mouse',
-      }))
-
-      canvas.dispatchEvent(new MouseEvent('mousemove', {
-        clientX: x,
-        clientY: y,
+      })
+      emit('MouseEvent', {
+        type: 'mousemove',
+        clientX: e.clientX - rect.left,
+        clientY: e.clientY - rect.top,
         bubbles: true,
-      }))
+      })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    appRef.current = splineApp
+    const handleMouseEnter = () => {
+      emit('MouseEvent', { type: 'mouseenter', bubbles: true })
+    }
+
+    const handleMouseDown = (e: MouseEvent) => {
+      emit('PointerEvent', {
+        type: 'pointerdown',
+        clientX: e.clientX,
+        clientY: e.clientY,
+        bubbles: true,
+        pointerId: 1,
+        pointerType: 'mouse',
+        button: e.button,
+        buttons: e.buttons,
+      })
+    }
+
+    const handleMouseUp = (e: MouseEvent) => {
+      emit('PointerEvent', {
+        type: 'pointerup',
+        clientX: e.clientX,
+        clientY: e.clientY,
+        bubbles: true,
+        pointerId: 1,
+        pointerType: 'mouse',
+        button: e.button,
+      })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    window.addEventListener('mousedown', handleMouseDown, { passive: true })
+    window.addEventListener('mouseup', handleMouseUp, { passive: true })
+    window.addEventListener('mouseenter', handleMouseEnter, { passive: true })
   }, [])
 
   return (

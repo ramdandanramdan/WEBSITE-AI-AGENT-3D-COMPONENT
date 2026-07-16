@@ -17,6 +17,10 @@ a, button, [role="button"] {
   cursor: none;
 }
 
+canvas {
+  cursor: none !important;
+}
+
 ::selection {
   background: rgba(79, 140, 255, 0.3);
   color: #ffffff;
