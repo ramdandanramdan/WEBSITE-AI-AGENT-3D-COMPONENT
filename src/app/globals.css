@@ -22,7 +22,7 @@ canvas {
 }
 
 ::selection {
-  background: rgba(79, 140, 255, 0.3);
+  background: rgba(79, 140, 255, 0.4);
   color: #ffffff;
 }
 
@@ -43,7 +43,123 @@ canvas {
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
-/* Card Hover Effects - Robotic Theme */
+/* ====== BRUTAL GLITCH FOR h1-h3 ====== */
+@keyframes glitch-brutal {
+  0%, 82%, 100% {
+    text-shadow: none;
+    transform: none;
+    clip-path: none;
+  }
+  83% {
+    text-shadow:
+      3px 0 rgba(79, 140, 255, 0.6),
+      -3px 0 rgba(107, 232, 255, 0.4),
+      0 2px rgba(255, 50, 50, 0.2);
+    transform: translate(2px, -1px) skewX(1deg);
+  }
+  85% {
+    text-shadow:
+      -2px 0 rgba(79, 140, 255, 0.5),
+      2px 0 rgba(107, 232, 255, 0.3);
+    transform: translate(-3px, 1px) skewX(-0.5deg);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%, 0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+  86% {
+    text-shadow:
+      4px 0 rgba(79, 140, 255, 0.7),
+      -4px 0 rgba(107, 232, 255, 0.5),
+      1px 1px rgba(255, 100, 100, 0.3);
+    transform: translate(3px, 2px) skewX(2deg);
+  }
+  87% {
+    text-shadow:
+      -1px 0 rgba(79, 140, 255, 0.3),
+      1px 0 rgba(107, 232, 255, 0.2);
+    transform: translate(-1px, 0) skewX(-1deg);
+  }
+  88% {
+    text-shadow: none;
+    transform: none;
+    clip-path: none;
+  }
+  93% {
+    text-shadow:
+      2px 0 rgba(79, 140, 255, 0.4),
+      -2px 0 rgba(107, 232, 255, 0.3);
+    transform: translate(1px, -1px);
+  }
+  94% {
+    text-shadow: none;
+    transform: none;
+  }
+}
+
+h1, h2, h3 {
+  animation: glitch-brutal 4s infinite;
+  position: relative;
+}
+
+/* ====== SCANLINE FLICKER ====== */
+@keyframes scanline-flicker {
+  0%, 95%, 100% { opacity: 0; }
+  96% { opacity: 0.08; }
+  97% { opacity: 0; }
+  98% { opacity: 0.05; }
+  99% { opacity: 0; }
+}
+
+h1::after, h2::after, h3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(79, 140, 255, 0.03) 2px,
+    rgba(79, 140, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  animation: scanline-flicker 6s infinite;
+}
+
+/* ====== TERMINAL TEXT FLICKER ====== */
+@keyframes terminal-flicker {
+  0%, 97%, 100% { opacity: 1; }
+  98% { opacity: 0.7; }
+  99% { opacity: 1; }
+}
+
+.text-flicker {
+  animation: terminal-flicker 3s infinite;
+}
+
+/* ====== BOOT SEQUENCE LINE ====== */
+@keyframes boot-line {
+  0% { width: 0; opacity: 1; }
+  80% { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+
+.boot-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79,140,255,0.6), rgba(107,232,255,0.4), rgba(79,140,255,0.6), transparent);
+  animation: boot-line 2s ease-out forwards;
+}
+
+/* ====== SCANLINES SCROLL (for CyberCard) ====== */
+@keyframes scanlines-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 400px; }
+}
+
+/* ====== CORNER PULSE ====== */
+@keyframes corner-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ====== CARD HOVER ENHANCED ====== */
 .card-glass {
   position: relative;
   background: transparent;
@@ -81,29 +197,32 @@ canvas {
     inset 0 1px 0 rgba(107,232,255,0.1);
 }
 
-/* Glitch for h1-h3 */
-@keyframes glitch {
-  0%, 88%, 100% {
-    text-shadow: none;
-    transform: none;
-  }
-  89% {
-    text-shadow: 2px 0 rgba(79, 140, 255, 0.5), -2px 0 rgba(107, 232, 255, 0.3);
-  }
-  90% {
-    text-shadow: -1px 0 rgba(79, 140, 255, 0.4), 1px 0 rgba(107, 232, 255, 0.2);
-    transform: translate(1px, 0);
-  }
-  91% {
-    text-shadow: 1px 0 rgba(79, 140, 255, 0.3);
-    transform: translate(-1px, 0);
-  }
-  92% {
-    text-shadow: none;
-    transform: none;
-  }
+/* ====== NUMBER COUNTER ANIMATION ====== */
+@keyframes count-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(79,140,255,0.3); }
+  50% { text-shadow: 0 0 20px rgba(79,140,255,0.6), 0 0 40px rgba(79,140,255,0.2); }
 }
 
-h1, h2, h3 {
-  animation: glitch 6s infinite;
+.count-glow {
+  animation: count-glow 3s ease-in-out infinite;
+}
+
+/* ====== TYPING CURSOR ====== */
+@keyframes blink-cursor {
+  0%, 50% { border-color: rgba(79,140,255,0.8); }
+  51%, 100% { border-color: transparent; }
+}
+
+.typing-cursor {
+  border-right: 2px solid rgba(79,140,255,0.8);
+  animation: blink-cursor 1s step-end infinite;
+}
+
+/* ====== GLITCH BORDER ANIMATION ====== */
+@keyframes glitch-border {
+  0%, 90%, 100% { border-color: rgba(255,255,255,0.06); }
+  92% { border-color: rgba(79,140,255,0.4); }
+  94% { border-color: rgba(107,232,255,0.3); }
+  96% { border-color: rgba(79,140,255,0.5); }
+  98% { border-color: rgba(255,255,255,0.06); }
 }

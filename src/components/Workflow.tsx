@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal } from "./ScrollReveal";
+import { ScrollReveal, GlitchText, CyberCard } from "./ScrollReveal";
 
 const steps = [
   { step: "01", title: "Dasar AI & Python", desc: "Mulai dari fundamental - Python, linear algebra, probability, dan pengenalan machine learning." },
@@ -20,7 +20,11 @@ export function Workflow() {
                 <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Jalur Belajar</span>
               </div>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-                Dari <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Pemula</span> hingga Mahir
+                <GlitchText intensity="medium">Dari </GlitchText>
+                <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                  <GlitchText intensity="high">Pemula</GlitchText>
+                </span>
+                <GlitchText intensity="medium"> hingga Mahir</GlitchText>
               </h2>
               <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
                 4 tahap terstruktur untuk menguasai AI agents dan robotika otonom.
@@ -32,16 +36,20 @@ export function Workflow() {
           <div className="absolute left-[27px] top-0 bottom-0 w-px hidden md:block" style={{ background: "linear-gradient(to bottom, #4F8CFF, #6BE8FF, transparent)" }} />
 
           <div className="space-y-6">
-            {steps.map((s) => (
+            {steps.map((s, i) => (
               <div key={s.step} className="flex gap-6 md:gap-10">
                 <div className="relative shrink-0">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center relative z-10" style={{ background: "transparent", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <CyberCard delay={i * 0.12} className="w-14 h-14 !p-0 flex items-center justify-center">
                     <span className="text-lg font-bold bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">{s.step}</span>
-                  </div>
+                  </CyberCard>
                 </div>
                 <div className="flex-1 pb-4">
-                  <h3 className="text-xl font-semibold text-white mb-2">{s.title}</h3>
-                  <p className="text-[#BFC7D5] leading-relaxed max-w-lg text-sm">{s.desc}</p>
+                  <CyberCard delay={i * 0.12 + 0.05}>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      <GlitchText intensity="low">{s.title}</GlitchText>
+                    </h3>
+                    <p className="text-[#BFC7D5] leading-relaxed max-w-lg text-sm">{s.desc}</p>
+                  </CyberCard>
                 </div>
               </div>
             ))}

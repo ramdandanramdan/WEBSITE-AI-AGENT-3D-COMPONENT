@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Sparkles } from "lucide-react";
-import { ScrollRevealRobot } from "./ScrollReveal";
+import { ScrollRevealRobot, GlitchText } from "./ScrollReveal";
 
 export function Hero() {
   return (
@@ -24,9 +24,11 @@ export function Hero() {
 
         <ScrollRevealRobot delay={0.1}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-8">
-            <span className="block text-white mb-3">Belajar Membuat</span>
+            <span className="block text-white mb-3">
+              <GlitchText intensity="medium">Belajar Membuat</GlitchText>
+            </span>
             <span className="block bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
-              Robot & AI Agent
+              <GlitchText intensity="high">Robot & AI Agent</GlitchText>
             </span>
           </h1>
         </ScrollRevealRobot>

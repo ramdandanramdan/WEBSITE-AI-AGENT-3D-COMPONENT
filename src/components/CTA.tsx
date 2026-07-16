@@ -1,18 +1,23 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { ScrollRevealRobot } from "./ScrollReveal";
+import { ScrollRevealRobot, GlitchText, CyberCard } from "./ScrollReveal";
 
 export function CTA() {
   return (
     <section className="py-24 md:py-32 px-6 pointer-events-auto">
       <div className="max-w-4xl mx-auto text-center relative">
         <ScrollRevealRobot>
-          <div className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            <span className="block text-white mb-3">Siap Memulai</span>
-            <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Perjalanan AI-mu?</span>
-          </h2>
+          <CyberCard className="!p-10 md:!p-14">
+            <div className="relative z-10">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              <span className="block text-white mb-3">
+                <GlitchText intensity="medium">Siap Memulai</GlitchText>
+              </span>
+              <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                <GlitchText intensity="high">Perjalanan AI-mu?</GlitchText>
+              </span>
+            </h2>
           <p className="text-lg text-[#BFC7D5] max-w-xl mx-auto mb-10 leading-relaxed">
             Bergabung dengan 500+ siswa yang sudah memulai karir AI-nya. Daftar sekarang dan dapatkan akses ke materi eksklusif.
           </p>
@@ -25,7 +30,8 @@ export function CTA() {
             </a>
           </div>
           <p className="text-xs text-[#BFC7D5] mt-6 opacity-60">Garansi uang kembali 7 hari · Tanpa kartu kredit · Bisa cancel kapan saja</p>
-          </div>
+            </div>
+          </CyberCard>
         </ScrollRevealRobot>
       </div>
     </section>

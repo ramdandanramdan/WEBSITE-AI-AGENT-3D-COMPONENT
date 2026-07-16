@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, CyberCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 const agents = [
   { name: "AI Reasoning Agent", role: "Logika & Keputusan", desc: "Bangun agent yang bisa menganalisis masalah, membuat rencana, dan mengambil keputusan secara otonom.", caps: ["Natural Language", "Goal Decomposition", "Problem Solving"], color: "#4F8CFF" },
@@ -25,7 +25,11 @@ export function AgentCards() {
               <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Modul Belajar</span>
             </div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Jenis <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">AI Agents</span> yang Dipelajari
+              <GlitchText intensity="low">Jenis </GlitchText>
+              <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                <GlitchText intensity="high">AI Agents</GlitchText>
+              </span>
+              <GlitchText intensity="low"> yang Dipelajari</GlitchText>
             </h2>
             <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
               Setiap modul dirancang untuk memberikan pemahaman mendalam tentang spesialisasi AI tertentu.

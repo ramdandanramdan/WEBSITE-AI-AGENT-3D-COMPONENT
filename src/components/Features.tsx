@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { ScrollReveal, CyberCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 function SectionHeading({
   badge,
@@ -90,7 +90,7 @@ export function Features() {
         <ScrollReveal>
           <SectionHeading
             badge="Kurikulum"
-            title={<>Materi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Hands-on</span> Terlengkap</>}
+            title={<><GlitchText intensity="low">Materi </GlitchText><span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent"><GlitchText intensity="high">Hands-on</GlitchText></span><GlitchText intensity="low"> Terlengkap</GlitchText></>}
             description="Semua yang kamu butuhkan untuk menguasai AI agents dan robotika otonom."
           />
         </ScrollReveal>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, CyberCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 const plans = [
   {
@@ -40,7 +40,10 @@ export function Pricing() {
               <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Paket Harga</span>
             </div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Investasi <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Masa Depan</span>
+              <GlitchText intensity="low">Investasi </GlitchText>
+              <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                <GlitchText intensity="high">Masa Depan</GlitchText>
+              </span>
             </h2>
             <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
               Mulai dari yang kecil, scale sesuai progress belajarmu.

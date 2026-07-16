@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
+import { GlitchText } from "./ScrollReveal";
 
 const faqs = [
   { q: "Apakah perlu basic coding sebelum ikut?", a: "Tidak perlu! Kami mulai dari nol. Modul pertama membahas dasar Python dan konsep programming yang dibutuhkan untuk AI." },
@@ -87,7 +88,10 @@ export function FAQ() {
             <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">FAQ</span>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-            Pertanyaan <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Umum</span>
+            <GlitchText intensity="low">Pertanyaan </GlitchText>
+            <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+              <GlitchText intensity="high">Umum</GlitchText>
+            </span>
           </h2>
           <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
             Semua yang perlu kamu tahu tentang RamadanClass.AI.

@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, CyberCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 const tools = [
   { name: "Python", category: "Bahasa Program" },
@@ -24,7 +24,10 @@ export function Integrations() {
               <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Tech Stack</span>
             </div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Tools <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">Industry-Standard</span>
+              <GlitchText intensity="low">Tools </GlitchText>
+              <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                <GlitchText intensity="high">Industry-Standard</GlitchText>
+              </span>
             </h2>
             <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
               Pelajari tools yang digunakan oleh engineer AI di seluruh dunia.

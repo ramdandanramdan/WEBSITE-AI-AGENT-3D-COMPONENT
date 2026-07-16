@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal, CyberCard } from "./ScrollReveal";
+import { ScrollReveal, CyberCard, GlitchText } from "./ScrollReveal";
 
 const testimonials = [
   { name: "Ahmad Rizky", role: "Fresh Graduate", company: "Universitas Indonesia", content: "Dari zero knowledge sampai bisa bikin AI agent yang auto-respons customer. Portfolioku sekarang jadi senjata utama melamar kerja." },
@@ -19,7 +19,10 @@ export function Testimonials() {
               <span className="text-xs font-medium tracking-widest uppercase text-[#BFC7D5]">Testimoni</span>
             </div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Dipercaya <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">500+ Siswa</span>
+              <GlitchText intensity="low">Dipercaya </GlitchText>
+              <span className="bg-gradient-to-r from-white via-[#4F8CFF] to-[#6BE8FF] bg-clip-text text-transparent">
+                <GlitchText intensity="high">500+ Siswa</GlitchText>
+              </span>
             </h2>
             <p className="text-base md:text-lg text-[#BFC7D5] leading-relaxed">
               Cerita nyata dari mereka yang sudah memulai perjalanan AI-nya bersama kami.
